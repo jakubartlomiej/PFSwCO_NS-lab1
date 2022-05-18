@@ -1,6 +1,20 @@
 # PFSwCO_NS-lab1
+P1.3
+```
+student@LabVM:~/Documents/lab1$ time DOCKER_BUILDKIT=0 docker build -q --no-cache .
+sha256:8ee1b29211cf222e2105ba738080a965e255f0a67f2c0e468902ed752f4b3d11
 
-Link do DockerHub [jakubartlomiej](https://hub.docker.com/r/jakubartlomiej/lab1/tags)
+real	0m7,670s
+user	0m0,016s
+sys	0m0,012s
+student@LabVM:~/Documents/lab1$ time DOCKER_BUILDKIT=1 docker build -q --no-cache .
+sha256:6ef1f0056b9caff91ab8576df30a3b8b1f3e72987e1627f15f6881ac58879645
+
+real	0m5,121s
+user	0m0,011s
+sys	0m0,020s
+student@LabVM:~/Documents/lab1$ 
+```
 
 P5.1
 
@@ -135,16 +149,18 @@ D5.1
 
 Wykorzystałem Dockerfile z zadania P5.1 zmieniając drugi wiersz: 
 ```
-# Specify a base image
-FROM nginx:latest
-
-WORKDIR /usr/app
-
-# Install some depenendencies
-COPY ./package.json ./
-RUN npm install
-COPY ./ ./
-
-# Default command
-CMD ["npm", "start"]
+1.# Specify a base image
+2.FROM nginx:latest
+3.
+4.WORKDIR /usr/app
+5.
+6.# Install some depenendencies
+7.COPY ./package.json ./
+8.RUN npm install
+9.COPY ./ ./
+10.
+11.# Default command
+12.CMD ["npm", "start"]
 ```
+
+Link do DockerHub [jakubartlomiej](https://hub.docker.com/r/jakubartlomiej/lab1/tags)
